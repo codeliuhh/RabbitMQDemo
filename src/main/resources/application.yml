@@ -1,0 +1,27 @@
+server:
+  port: 777
+  servlet:
+    context-path: /mq
+
+
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    username: guest
+    password: guest
+    port: 5672
+    exchange:
+      name: fanout_order_exchange
+      direct: direct_order_exchange
+      topic: topic_order_exchange
+      ttl: ttl_order_exchange
+    listener:
+      simple:
+        acknowledge-mode: manual
+    publisher-confirm-type: correlated
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/liuhh?useUnocode=true&characterEncoding=utf-8
